@@ -1,9 +1,0 @@
-<launch>
-    <node pkg="lightrover_ros" type="i2c_controller.py" name="rover_i2c_controller" output="screen" />
-
-    <node pkg="lightrover_ros" type="odometry.py" name="rover_odometry" output="screen" />
-
-    <node pkg="lightrover_ros" type="pos_controller.py" name="pos_controller" output="screen">
-        <remap from="/rover_drive" to="/cmd_vel" />
-    </node>
-</launch>
