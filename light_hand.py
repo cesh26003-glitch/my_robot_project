@@ -65,7 +65,7 @@ class RightHandRuleExplorer:
 
         self.ssh_password = os.environ.get(
             'LIGHTROVER_SSH_PASSWORD',
-            rospy.get_param('~ssh_password', 'Shin1128')
+            rospy.get_param('~ssh_password', '')
         )
 
         self.remote_cmd = rospy.get_param(
