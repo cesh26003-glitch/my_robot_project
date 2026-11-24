@@ -14,4 +14,4 @@ launchファイル(roadmap_with_lidar.launch):既存の移動制御ノードとC
 Cartographer(SLAMによる地図作成。生成された地図はRvizで確認)
 
 開発環境: Windows(WSL/Ubuntu)/ Python 2.7 / ROS 1 Melodic / SSH(paramiko)
-実行方法: ロボット側 roslaunch lightrover_ros roadmap_with_lidar.launch、PC側 python right_hand_05.py(Spaceキーで自律移動 ON/OFF)
+実行方法: ロボット側 roslaunch lightrover_ros drive_with_lidar.launch、PC側 python right_hand.py(Spaceキーで自律移動 ON/OFF)
