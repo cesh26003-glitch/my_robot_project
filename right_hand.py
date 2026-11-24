@@ -1,4 +1,3 @@
-ishii@DESKTOP-79V73LO:~$ cat right_hand_05.py
 # -*- coding: utf-8 -*-
 """
 単純な右手法（右壁追従）探索ノード + 狭い隙間の壁認識
@@ -1450,4 +1449,4 @@ if __name__ == '__main__':
     except rospy.ROSInterruptException:
 
         pass
-ishii@DESKTOP-79V73LO:~$ python right_hand_05.py _advance_dist:=0.10 _target_right_dist:=0.15
+
