@@ -1,31 +1,17 @@
 my_robot
 概要
 
-PC上でPythonプログラム（inght_hand.py)を実行し、SSH接続を利用してRaspberry Piにロボットの移動命令を送信する制御システムです。
-launchファイルはロボット本体の移動制御用につくったもの既存のコードを必要な分だけ起動する。
+LightRover(Raspberry Pi搭載)を使い、LiDARとCartographerによる地図作成を行いながら、右手法ベースで迷路を自律探索するシステムです。
 
-ロボットから点群データを受け取り、それをもとに右手法をベースにした探索アルゴリズムを実行するRviz上で作成した地図を確認できる。
+自作した部分
 
-開発環境
-OS：Windows / Python実行環境
-プログラミング言語：Python
-通信方式：SSH
-接続先：Raspberry Pi
-ロボット制御：ROS
-主な機能
-Raspberry PiとのSSH接続
-ロボットへの移動命令の送信
-PC側からのロボット操作
+右手法の探索プログラム(right_hand_05.py):Cartographerの点群(/scan_matched_points2)と /odom から前方・右側の壁との位置関係を判断し、速度指令を生成します。速度指令は SSH(paramiko)経由でRaspberry Pi側に送ります。
+launchファイル(roadmap_with_lidar.launch):既存の移動制御ノードとCartographerのうち、必要なものだけを起動するようにまとめたものです。
 
+既存のものを利用した部分
 
+ロボットの移動制御用コード
+Cartographer(SLAMによる地図作成。生成された地図はRvizで確認)
 
-実行方法
-ロボット側
-roslaunch lightrover_ros roadmap_with_lidar.launch
-
-PC側
-python right_hand.py
-
-システム構成
-
-PCからSSH接続を利用してRaspberry Piに命令を送信し、Raspberry Pi側のROS環境でロボットを制御します。
+開発環境: Windows(WSL/Ubuntu)/ Python 2.7 / ROS 1 Melodic / SSH(paramiko)
+実行方法: ロボット側 roslaunch lightrover_ros roadmap_with_lidar.launch、PC側 python right_hand_05.py(Spaceキーで自律移動 ON/OFF)
